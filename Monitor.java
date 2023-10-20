@@ -1,9 +1,10 @@
-public class Monitor extends Component {
+public abstract class Monitor extends Component {
 
   public int resolution;
 
-  public Monitor(String name, int resolution) {
-    this.name = name;
-    this.resolution = resolution;
+  public void turnOn() {
+    System.out.println(" ");
+    System.out.println("brand: " + brand);
+    System.out.println("resolution: " + resolution);
   }
 }

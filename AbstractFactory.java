@@ -1,9 +1,9 @@
 /**
  * Factory
  */
-public abstract class AbstractFactory {
-
-  public abstract Monitor makeMonitor();
+public abstract interface AbstractFactory {
 
   public abstract Gpu makeGpu();
+
+  public abstract Monitor makeMonitor();
 }

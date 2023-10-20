@@ -1,22 +1,24 @@
+import java.util.Random;
+
+// https://refactoring.guru/design-patterns/abstract-factory
+// https://www.youtube.com/watch?v=QNpwWkdFvgQ
+
 public class App {
 
   public static void main(String[] args) {
-    AbstractFactory asus = new AsusFactory();
-    Monitor asusMonitor = asus.makeMonitor();
-    Gpu asusGpu = asus.makeGpu();
+    AbstractFactory factory;
 
-    System.out.println("asus monitor: " + asusMonitor.name);
-    System.out.println("asus monitor: " + asusMonitor.resolution);
-    System.out.println("asus gpu: " + asusGpu.name);
-    System.out.println("asus gpu: " + asusGpu.memory);
+    // fábricas concretas são selecionadas aleatoriamente, demonstrando desacoplamento
+    if (new Random().nextInt(2) == 0) {
+      factory = new AsusFactory();
+    } else {
+      factory = new MsiFactory();
+    }
 
-    AbstractFactory msi = new MsiFactory();
-    Monitor msiMonitor = msi.makeMonitor();
-    Gpu msiGpu = msi.makeGpu();
+    Monitor monitor = factory.makeMonitor();
+    Gpu gpu = factory.makeGpu();
 
-    System.out.println("msi monitor: " + msiMonitor.name);
-    System.out.println("msi monitor: " + msiMonitor.resolution);
-    System.out.println("msi gpu: " + msiGpu.name);
-    System.out.println("msi gpu: " + msiGpu.memory);
+    monitor.turnOn();
+    gpu.turnOn();
   }
 }

@@ -1,15 +1,15 @@
 /**
  * AsusFactory
  */
-public class AsusFactory extends AbstractFactory {
+public class AsusFactory implements AbstractFactory {
 
   @Override
   public Monitor makeMonitor() {
-    return new Monitor("asusMonitor", 1080);
+    return new AsusMonitor("asusMonitor", 1080);
   }
 
   @Override
   public Gpu makeGpu() {
-    return new Gpu("asusGpu", 999);
+    return new AsusGpu("asusGpu", 999);
   }
 }
